@@ -17,7 +17,7 @@
     background-size: contain;
   }
 }
-@mixin product($url: "", $top: 0, $left: 0, $width: 30px, $height: 30px) {
+@mixin product($url: "", $top: 0, $left: 0, $width: 80px, $height: 80px) {
   position: absolute;
   background: url($url) center no-repeat;
   background-size: contain;
@@ -25,4 +25,21 @@
   height: $height;
   top: $top;
   left: $left;
+}
+@mixin notebook {
+  @media (max-width: (1366px)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: (1024px)) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: (768px)) {
+    @content;
+  }
 }

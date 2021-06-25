@@ -39,13 +39,6 @@
           />
         </button>
       </div>
-      <div class="header__products">
-        <img
-          class="header__products-img"
-          src="../assets/images/header/header__products.png"
-          alt=""
-        />
-      </div>
     </div>
   </header>
 </template>
@@ -61,7 +54,8 @@ export default {
 .header {
   height: 100vh;
   max-width: 100vw;
-  background: linear-gradient(73.84deg, #333232 0.29%, #0f0c0a 33.42%);
+  background: url("../assets/images/header/header__bg.png") center no-repeat;
+  background-size: cover;
   @include flex(center, center, nowrap);
   &__container {
     width: 90%;
@@ -99,8 +93,6 @@ export default {
       no-repeat;
     background-size: contain;
     @include flex(center, center, nowrap);
-    &-arrow {
-    }
   }
 }
 </style>

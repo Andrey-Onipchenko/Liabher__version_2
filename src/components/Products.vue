@@ -5,7 +5,7 @@
       :key="product.name"
       :class="product.class"
       :data-product="product.name"
-      @click="chengeProduct"
+      @click="chooseProduct"
     ></button>
   </div>
 </template>
@@ -15,115 +15,128 @@ export default {
   data() {
     return {
       products: [
-        { name: "eggs", class: "product__eggs" },
         { name: "cake", class: "product__cake" },
         { name: "lemon", class: "product__lemon" },
         { name: "blueCheese", class: "product__blueCheese" },
         { name: "сheese", class: "product__сheese" },
         { name: "caviar", class: "product__caviar" },
         { name: "milk", class: "product__milk" },
+        { name: "eggs", class: "product__eggs" },
         { name: "salad", class: "product__salad" },
         { name: "pan", class: "product__pan" },
         { name: "meat", class: "product__meat" },
-        { name: "mushrooms", class: "product__mushrooms" },
-        { name: "beet", class: "product__beet" },
-        { name: "carrot", class: "product__carrot" },
-        { name: "apple", class: "product__apple" },
+        // { name: "mushrooms", class: "product__mushrooms" },
+        // { name: "beet", class: "product__beet" },
+        // { name: "carrot", class: "product__carrot" },
+        // { name: "apple", class: "product__apple" },
         { name: "dumplings", class: "product__dumplings" },
         { name: "berries", class: "product__berries" },
       ],
     };
   },
-  //   methods: {
-  //     chengeProduct(event) {
-  //       this.$emit("chengeProduct", event.target.dataset.product);
-  //     },
-  //   },
+  methods: {
+    chooseProduct(event) {
+      console.dir(event.target.offsetTop);
+      console.dir(event);
+      this.$emit(
+        "chooseProduct",
+        event.target.dataset.product,
+        event.target.offsetTop
+      );
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .product {
   //   display: none;
-  &__eggs {
-    @include product(
-      "../assets/images/product/eggs.png",
-      74px,
-      132px,
-      76px,
-      60px
-    );
-    @include hover("../assets/images/product/eggs__hover.png");
-  }
+
   &__cake {
-    @include product("../assets/images/product/cake.png", 50px, 50px);
+    @include product("../assets/images/product/cake.png", 80px, 60px);
     @include hover("../assets/images/product/cake__hover.png");
   }
   &__lemon {
-    @include product("../assets/images/product/lemon.png", 53px, 108px);
+    @include product("../assets/images/product/lemon.png", 88px, 212px);
     @include hover("../assets/images/product/lemon__hover.png");
   }
   &__blueCheese {
-    @include product("../assets/images/product/blueCheese.png", 95px, 45px);
+    @include product(
+      "../assets/images/product/blueCheese.png",
+      200px,
+      50px,
+      70px,
+      70px
+    );
     @include hover("../assets/images/product/blueCheese__hover.png");
   }
   &__сheese {
     @include product(
       "../assets/images/product/cheese.png",
-      97px,
-      75px,
-      25px,
-      25px
+      195px,
+      115px,
+      70px,
+      70px
     );
     @include hover("../assets/images/product/cheese__hover.png");
   }
   &__caviar {
     @include product(
       "../assets/images/product/caviar.png",
-      100px,
-      100px,
-      20px,
-      22px
+      195px,
+      180px,
+      55px,
+      70px
     );
     @include hover("../assets/images/product/caviar__hover.png");
   }
   &__milk {
     @include product(
       "../assets/images/product/milk.png",
-      82px,
-      117px,
-      20px,
-      40px
+      165px,
+      230px,
+      50px,
+      100px
     );
     @include hover("../assets/images/product/milk__hover.png");
+  }
+  &__eggs {
+    @include product(
+      "../assets/images/product/eggs.png",
+      147px,
+      275px,
+      190px,
+      149px
+    );
+    @include hover("../assets/images/product/eggs__hover.png");
   }
   &__salad {
     @include product(
       "../assets/images/product/salad.png",
-      130px,
-      50px,
-      30px,
-      40px
+      293px,
+      65px,
+      80px,
+      80px
     );
     @include hover("../assets/images/product/salad__hover.png");
   }
   &__pan {
     @include product(
       "../assets/images/product/pan.png",
-      125px,
-      80px,
-      60px,
-      40px
+      267px,
+      140px,
+      160px,
+      100px
     );
     @include hover("../assets/images/product/pan__hover.png");
   }
   &__meat {
     @include product(
       "../assets/images/product/meat.png",
-      195px,
-      30px,
-      125px,
-      60px
+      438px,
+      28px,
+      308px,
+      155px
     );
     @include hover("../assets/images/product/meat__hover.png");
   }
@@ -170,20 +183,20 @@ export default {
   &__dumplings {
     @include product(
       "../assets/images/product/dumplings.png",
-      366px,
-      29px,
-      130px,
-      60px
+      855px,
+      28px,
+      308px,
+      155px
     );
     @include hover("../assets/images/product/dumplings__hover.png");
   }
   &__berries {
     @include product(
       "../assets/images/product/berries.png",
-      415px,
-      29px,
-      130px,
-      60px
+      973px,
+      28px,
+      308px,
+      155px
     );
     @include hover("../assets/images/product/berries__hover.png");
   }
