@@ -52,9 +52,8 @@
           class="popup__text"
           v-for="(description, index) in product.description"
           :key="index"
-        >
-          {{ description.text }}
-        </p>
+          v-html="description.text"
+        ></p>
       </div>
     </div>
     <button class="popup__more">Детальніше</button>
@@ -132,10 +131,6 @@ export default {
         this.$refs.popup.style.bottom = "auto";
       }
     },
-  },
-  mounted() {
-    console.log(this.main);
-    // this.$refs.popup.style.top = `${this.position}px`;
   },
 };
 </script>

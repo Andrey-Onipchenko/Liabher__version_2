@@ -64,7 +64,7 @@ export default {
     }
   }
   &__lemon {
-    @include product("../assets/images/product/lemon.png", 88px, 212px);
+    @include product("../assets/images/product/lemon.png", 85px, 200px);
     @include hover("../assets/images/product/lemon__hover.png");
     @include mobile {
       @include product(
@@ -79,7 +79,7 @@ export default {
   &__blueCheese {
     @include product(
       "../assets/images/product/blueCheese.png",
-      200px,
+      193px,
       50px,
       70px,
       70px
@@ -98,7 +98,7 @@ export default {
   &__сheese {
     @include product(
       "../assets/images/product/cheese.png",
-      195px,
+      189px,
       115px,
       70px,
       70px
@@ -117,7 +117,7 @@ export default {
   &__caviar {
     @include product(
       "../assets/images/product/caviar.png",
-      195px,
+      188px,
       180px,
       55px,
       70px
@@ -136,7 +136,7 @@ export default {
   &__milk {
     @include product(
       "../assets/images/product/milk.png",
-      165px,
+      158px,
       230px,
       50px,
       100px
@@ -155,10 +155,10 @@ export default {
   &__eggs {
     @include product(
       "../assets/images/product/eggs.png",
-      147px,
-      275px,
+      140px,
+      268px,
       190px,
-      149px
+      150px
     );
     @include hover("../assets/images/product/eggs__hover.png");
     @include mobile {
@@ -174,7 +174,7 @@ export default {
   &__salad {
     @include product(
       "../assets/images/product/salad.png",
-      293px,
+      283px,
       65px,
       80px,
       80px
@@ -193,7 +193,7 @@ export default {
   &__pan {
     @include product(
       "../assets/images/product/pan.png",
-      267px,
+      257px,
       140px,
       160px,
       100px
@@ -212,10 +212,10 @@ export default {
   &__meat {
     @include product(
       "../assets/images/product/meat.png",
-      438px,
-      28px,
-      308px,
-      155px
+      427px,
+      27px,
+      300px,
+      145px
     );
     @include hover("../assets/images/product/meat__hover.png");
     @include mobile {
@@ -271,10 +271,10 @@ export default {
   &__dumplings {
     @include product(
       "../assets/images/product/dumplings.png",
-      855px,
+      833px,
       28px,
-      308px,
-      155px
+      300px,
+      145px
     );
     @include hover("../assets/images/product/dumplings__hover.png");
     @include mobile {
@@ -290,10 +290,10 @@ export default {
   &__berries {
     @include product(
       "../assets/images/product/berries.png",
-      973px,
+      949px,
       28px,
-      308px,
-      155px
+      300px,
+      145px
     );
     @include hover("../assets/images/product/berries__hover.png");
     @include mobile {
