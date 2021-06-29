@@ -1,8 +1,9 @@
 <template>
   <div class="operating-modes">
     <div class="slider">
-      <div class="slider__content" ref="content">
-        <h3
+      <div class="slider__content" >
+        <div class="slider__content-wrap" ref="content">
+                <h3
           class="slider__title"
           :class="activeSlide?.subtitle ? '' : 'slider__subtitle'"
         >
@@ -19,20 +20,21 @@
           >
             {{ description }}
           </p>
-        </div>
-        <div class="slider__bullets">
+        </div></div>
+        <div class="slider__bullets" ref='bullets'>
           <div
             class="slider__bullets-item"
-            v-for="bullet in slides"
+            v-for="(bullet,index) in slides"
             :key="bullet.name"
-            @click="chengeSlide(bullet)"
+             :class="index === 0 && 'slider__active'"
+            @click="chengeSlide(bullet, $event)"
           >
             {{ bullet.name }}
           </div>
         </div>
       </div>
       <div class="slider__images" ref="sliderImage">
-        <img class="slider__img" :src="activeSlide.img" alt="" />
+        <img class="slider__img" :src="activeSlide.img" :alt="activeSlide.title" />
       </div>
     </div>
   </div>
@@ -100,18 +102,22 @@ export default {
     this.activeSlide = this.slides[0];
   },
   methods: {
-    chengeSlide(bullet) {
-      console.log(this.activeSlide);
+    chengeSlide(bullet, event) {
+      if(!(bullet === this.activeSlide)){
       this.$refs.content.style.opacity = "0";
       this.$refs.sliderImage.style.opacity = "0";
       setTimeout(() => {
         this.activeSlide = bullet;
         this.$refs.content.style.opacity = "1";
         this.$refs.sliderImage.style.opacity = "1";
-        console.log(this.activeSlide);
+        this.chengeBullet(event.target);
       }, 500);
-      //
+      }
     },
+    chengeBullet(bullet){
+    this.$refs.bullets.querySelector('.slider__active').classList.remove('slider__active');
+    bullet.classList.add('slider__active')
+    }
   },
 };
 </script>
@@ -129,9 +135,13 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   &__content {
     margin-left: 5%;
     transition: all 500ms ease-in-out;
+    &-wrap{
+      min-height: 370px;
+    }
   }
   &__title,
   &__subtitle {
@@ -170,6 +180,10 @@ export default {
       padding-top: 10px;
       cursor: pointer;
     }
+  }
+    &__active{
+    color: $blue;
+    border-top: 2px solid $blue;
   }
 }
 </style>

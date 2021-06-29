@@ -90,22 +90,22 @@ export default {
     },
   },
 
-  watch: {
-    position() {
-      this.$refs.popup.style.top = `${this.position}px`;
-    },
-  },
-  mounted() {
-    this.$refs.popup.style.top = `${this.position}px`;
-  },
+  // watch: {
+  //   position() {
+  //     this.$refs.popup.style.top = `${this.position}px`;
+  //   },
+  // },
+  // mounted() {
+  //   this.$refs.popup.style.top = `${this.position}px`;
+  // },
 };
 </script>
 
 <style lang="scss">
 .popup {
-  position: absolute;
-  top: 0px;
-  right: 15%;
+  position: fixed;
+  top: 10%;
+  right: 10%;
   max-width: 360px;
   width: 100%;
   height: 600px;

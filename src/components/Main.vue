@@ -1,5 +1,5 @@
 <template>
-  <div class="main" ref="main">
+  <div class="main" ref="main" >
     <a class="main__link" href=""
       >В магазин
       <svg
@@ -82,6 +82,12 @@ export default {
     VProducts,
     VPopup,
   },
+    created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  unmounted () {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
   methods: {
     changeIcebox(event) {
       let selected = event.target.getAttribute("data-icebox");
@@ -127,6 +133,9 @@ export default {
     popupClose() {
       this.popup = false;
     },
+    handleScroll(){
+      console.dir(event.target);
+    }
   },
   mounted() {
     this.products = this.$store.getters.getProduct;
