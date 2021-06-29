@@ -1,5 +1,5 @@
 <template>
-  <div class="main" ref="main" >
+  <div class="main" ref="main">
     <a class="main__link" href=""
       >В магазин
       <svg
@@ -59,6 +59,8 @@
       v-if="popup"
       :product="productData"
       :position="popupPosition"
+      :scroll="scrollTop"
+      :main="main"
     />
   </div>
 </template>
@@ -76,17 +78,22 @@ export default {
       popupPosition: 0,
       index: null,
       productData: {},
+      scrollTop: 0,
+      main: {
+        top: null,
+        height: null,
+      },
     };
   },
   components: {
     VProducts,
     VPopup,
   },
-    created () {
-    window.addEventListener('scroll', this.handleScroll);
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
   },
-  unmounted () {
-    window.removeEventListener('scroll', this.handleScroll);
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     changeIcebox(event) {
@@ -133,12 +140,14 @@ export default {
     popupClose() {
       this.popup = false;
     },
-    handleScroll(){
-      console.dir(event.target);
-    }
+    handleScroll() {
+      this.scrollTop = window.scrollY;
+    },
   },
   mounted() {
     this.products = this.$store.getters.getProduct;
+    this.main.top = this.$refs.main.offsetTop || 0;
+    this.main.height = this.$refs.main.clientHeight || 0;
   },
 };
 </script>
@@ -151,6 +160,9 @@ export default {
   background-size: cover;
   @include flex(center, center, nowrap);
   position: relative;
+  @include mobile {
+    height: 1000px;
+  }
   &__link {
     position: absolute;
     top: 10px;
@@ -162,22 +174,47 @@ export default {
     height: 44px;
     background: $blue;
     border-radius: 5px;
+    @include mobile {
+      top: auto;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
   }
   &__wrap {
     height: 100%;
     padding: 50px 0;
     @include flex(center, flex-start, nowrap);
+    @include mobile {
+      flex-direction: column;
+    }
   }
   &__current-icebox {
     height: 100%;
     position: relative;
     &-img {
       height: 100%;
+      @include mobile {
+        object-fit: contain;
+        width: 320px;
+        height: 800px;
+      }
+    }
+    @include mobile {
+      display: flex;
+      justify-content: center;
     }
   }
   &__icebox {
     &-list {
       margin-top: 50px;
+      @include mobile {
+        display: flex;
+        justify-content: space-around;
+        width: 90%;
+        margin: 0 auto;
+      }
     }
     &-item {
       margin-right: 100px;
@@ -189,14 +226,23 @@ export default {
       &:nth-last-child(1) {
         margin-bottom: 0;
       }
+      @include mobile {
+        margin-right: 0;
+      }
     }
     &-active {
       background: url("../assets/images/main/icebox__active.svg") center
         no-repeat;
+      @include mobile {
+        background-size: 68px;
+      }
     }
     &-img {
       max-height: 220px;
       cursor: pointer;
+      @include mobile {
+        max-height: 105px;
+      }
     }
   }
 }

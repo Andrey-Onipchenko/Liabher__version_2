@@ -21,23 +21,21 @@ export default {
         { name: "сheese", class: "product__сheese" },
         { name: "caviar", class: "product__caviar" },
         { name: "milk", class: "product__milk" },
-        { name: "eggs", class: "product__eggs" },
-        { name: "salad", class: "product__salad" },
-        { name: "pan", class: "product__pan" },
-        { name: "meat", class: "product__meat" },
-        // { name: "mushrooms", class: "product__mushrooms" },
-        // { name: "beet", class: "product__beet" },
-        // { name: "carrot", class: "product__carrot" },
-        // { name: "apple", class: "product__apple" },
-        { name: "dumplings", class: "product__dumplings" },
-        { name: "berries", class: "product__berries" },
+        // { name: "eggs", class: "product__eggs" },
+        // { name: "salad", class: "product__salad" },
+        // { name: "pan", class: "product__pan" },
+        // { name: "meat", class: "product__meat" },
+        // // { name: "mushrooms", class: "product__mushrooms" },
+        // // { name: "beet", class: "product__beet" },
+        // // { name: "carrot", class: "product__carrot" },
+        // // { name: "apple", class: "product__apple" },
+        // { name: "dumplings", class: "product__dumplings" },
+        // { name: "berries", class: "product__berries" },
       ],
     };
   },
   methods: {
     chooseProduct(event) {
-      console.dir(event.target.offsetTop);
-      console.dir(event);
       this.$emit(
         "chooseProduct",
         event.target.dataset.product,
@@ -50,15 +48,33 @@ export default {
 
 <style lang="scss">
 .product {
-  //   display: none;
-
+  @include mobile {
+  }
   &__cake {
     @include product("../assets/images/product/cake.png", 80px, 60px);
     @include hover("../assets/images/product/cake__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/cake.png",
+        67px,
+        35px,
+        50px,
+        50px
+      );
+    }
   }
   &__lemon {
     @include product("../assets/images/product/lemon.png", 88px, 212px);
     @include hover("../assets/images/product/lemon__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/lemon.png",
+        72px,
+        120px,
+        50px,
+        50px
+      );
+    }
   }
   &__blueCheese {
     @include product(
@@ -69,6 +85,15 @@ export default {
       70px
     );
     @include hover("../assets/images/product/blueCheese__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/blueCheese.png",
+        140px,
+        30px,
+        45px,
+        40px
+      );
+    }
   }
   &__сheese {
     @include product(
@@ -79,6 +104,15 @@ export default {
       70px
     );
     @include hover("../assets/images/product/cheese__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/cheese.png",
+        140px,
+        70px,
+        40px,
+        35px
+      );
+    }
   }
   &__caviar {
     @include product(
@@ -89,6 +123,15 @@ export default {
       70px
     );
     @include hover("../assets/images/product/caviar__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/caviar.png",
+        137px,
+        100px,
+        40px,
+        40px
+      );
+    }
   }
   &__milk {
     @include product(
@@ -99,6 +142,15 @@ export default {
       100px
     );
     @include hover("../assets/images/product/milk__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/milk.png",
+        117px,
+        135px,
+        30px,
+        60px
+      );
+    }
   }
   &__eggs {
     @include product(

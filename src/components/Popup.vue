@@ -78,6 +78,20 @@ export default {
         return 0;
       },
     },
+    scroll: {
+      type: Number,
+      required: true,
+      default: () => {
+        return 0;
+      },
+    },
+    main: {
+      type: Object,
+      required: true,
+      default: () => {
+        return {};
+      },
+    },
   },
   computed: {
     days() {
@@ -90,20 +104,45 @@ export default {
     },
   },
 
-  // watch: {
-  //   position() {
-  //     this.$refs.popup.style.top = `${this.position}px`;
-  //   },
-  // },
-  // mounted() {
-  //   this.$refs.popup.style.top = `${this.position}px`;
-  // },
+  watch: {
+    scroll() {
+      if (
+        this.scroll >= this.main.top &&
+        this.scroll < this.main.top + this.main.height
+      ) {
+        if (
+          this.scroll >=
+          this.main.top + this.main.height - this.$refs.popup.clientHeight - 140
+        ) {
+          this.$refs.popup.style.position = "absolute";
+          this.$refs.popup.style.top = "auto";
+          this.$refs.popup.style.bottom = "0";
+        } else {
+          console.log(this.scroll);
+          this.$refs.popup.style.position = "fixed";
+          this.$refs.popup.style.top = "10%";
+          this.$refs.popup.style.bottom = "auto";
+        }
+      } else if (
+        this.scroll < this.main.top ||
+        this.scroll >= this.main.top + this.main.height - 140
+      ) {
+        this.$refs.popup.style.position = "absolute";
+        this.$refs.popup.style.top = "10%";
+        this.$refs.popup.style.bottom = "auto";
+      }
+    },
+  },
+  mounted() {
+    console.log(this.main);
+    // this.$refs.popup.style.top = `${this.position}px`;
+  },
 };
 </script>
 
 <style lang="scss">
 .popup {
-  position: fixed;
+  position: absolute;
   top: 10%;
   right: 10%;
   max-width: 360px;
