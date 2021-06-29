@@ -176,15 +176,16 @@ export default {
     border-radius: 5px;
     @include mobile {
       top: auto;
-      bottom: 40px;
+      bottom: 30px;
       left: 0;
       right: 0;
       margin: 0 auto;
+      z-index: 1;
     }
   }
   &__wrap {
     height: 100%;
-    padding: 50px 0;
+    padding: 70px 0;
     @include flex(center, flex-start, nowrap);
     @include mobile {
       flex-direction: column;

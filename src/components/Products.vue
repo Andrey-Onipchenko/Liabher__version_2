@@ -21,16 +21,16 @@ export default {
         { name: "сheese", class: "product__сheese" },
         { name: "caviar", class: "product__caviar" },
         { name: "milk", class: "product__milk" },
-        // { name: "eggs", class: "product__eggs" },
-        // { name: "salad", class: "product__salad" },
-        // { name: "pan", class: "product__pan" },
-        // { name: "meat", class: "product__meat" },
-        // // { name: "mushrooms", class: "product__mushrooms" },
-        // // { name: "beet", class: "product__beet" },
-        // // { name: "carrot", class: "product__carrot" },
-        // // { name: "apple", class: "product__apple" },
-        // { name: "dumplings", class: "product__dumplings" },
-        // { name: "berries", class: "product__berries" },
+        { name: "eggs", class: "product__eggs" },
+        { name: "salad", class: "product__salad" },
+        { name: "pan", class: "product__pan" },
+        { name: "meat", class: "product__meat" },
+        // { name: "mushrooms", class: "product__mushrooms" },
+        // { name: "beet", class: "product__beet" },
+        // { name: "carrot", class: "product__carrot" },
+        // { name: "apple", class: "product__apple" },
+        { name: "dumplings", class: "product__dumplings" },
+        { name: "berries", class: "product__berries" },
       ],
     };
   },
@@ -161,6 +161,15 @@ export default {
       149px
     );
     @include hover("../assets/images/product/eggs__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/eggs.png",
+        101px,
+        160px,
+        112px,
+        100px
+      );
+    }
   }
   &__salad {
     @include product(
@@ -171,6 +180,15 @@ export default {
       80px
     );
     @include hover("../assets/images/product/salad__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/salad.png",
+        196px,
+        40px,
+        50px,
+        40px
+      );
+    }
   }
   &__pan {
     @include product(
@@ -181,6 +199,15 @@ export default {
       100px
     );
     @include hover("../assets/images/product/pan__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/pan.png",
+        180px,
+        95px,
+        85px,
+        55px
+      );
+    }
   }
   &__meat {
     @include product(
@@ -191,6 +218,15 @@ export default {
       155px
     );
     @include hover("../assets/images/product/meat__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/meat.png",
+        271px,
+        17px,
+        177px,
+        90px
+      );
+    }
   }
   &__mushrooms {
     @include product(
@@ -241,6 +277,15 @@ export default {
       155px
     );
     @include hover("../assets/images/product/dumplings__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/dumplings.png",
+        520px,
+        14px,
+        180px,
+        90px
+      );
+    }
   }
   &__berries {
     @include product(
@@ -251,6 +296,15 @@ export default {
       155px
     );
     @include hover("../assets/images/product/berries__hover.png");
+    @include mobile {
+      @include product(
+        "../assets/images/product/berries.png",
+        590px,
+        14px,
+        180px,
+        90px
+      );
+    }
   }
 }
 .current .product {
