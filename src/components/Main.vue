@@ -1,5 +1,5 @@
 <template>
-  <div class="main" ref="main">
+  <div class="main" id="main" ref="main">
     <a class="main__link" href=""
       >В магазин
       <svg
@@ -54,7 +54,12 @@
         <v-products @chooseProduct="openPopup" />
       </div>
     </div>
-    <v-popup @popupClose="popupClose" v-if="popup" :product="productData" />
+    <v-popup
+      @popupClose="popupClose"
+      @chengeProduct="chengeProductPopup"
+      v-if="popup"
+      :product="productData"
+    />
   </div>
 </template>
 
@@ -115,12 +120,27 @@ export default {
         (el) => el.name === productName
       )[0];
       this.index = this.productData.position;
+      console.log(this.index);
       this.popup = true;
       document.documentElement.style.overflow = "hidden";
     },
     popupClose() {
       this.popup = false;
       document.documentElement.style.overflow = "auto";
+    },
+    chengeProductPopup(direction) {
+      if (direction === "next") {
+        this.index += 1;
+        if (this.index >= this.products.length) {
+          this.index = 0;
+        }
+      } else if (direction === "back") {
+        if (this.index <= 0) {
+          this.index = this.products.length;
+        }
+        this.index -= 1;
+      }
+      this.productData = this.products[this.index];
     },
   },
   mounted() {
@@ -132,8 +152,8 @@ export default {
 <style lang="scss">
 .main {
   height: 1400px;
-  background: url("https://liebherr.korrespondent.net/img/black__bg.svg") center
-    no-repeat;
+  background: #333232
+    url("https://liebherr.korrespondent.net/img/black__bg.svg") center no-repeat;
   background-size: cover;
   @include flex(center, center, nowrap);
   position: relative;

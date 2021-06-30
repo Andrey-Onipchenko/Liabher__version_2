@@ -1,11 +1,13 @@
 <template>
-  <div class="product">
+  <div class="product" ref="product">
     <button
       v-for="product in products"
       :key="product.name"
       :class="product.class"
-      :data-product="product.name"
-      @click="chooseProduct"
+      @click="chooseProduct(product.name)"
+      :style="product.name === 'meat' && 'z-index: 1;'"
+      @mouseover="focusProduct(product.name)"
+      :ref="product.name"
     ></button>
   </div>
 </template>
@@ -25,22 +27,49 @@ export default {
         { name: "salad", class: "product__salad" },
         { name: "pan", class: "product__pan" },
         { name: "meat", class: "product__meat" },
-        // { name: "mushrooms", class: "product__mushrooms" },
-        // { name: "beet", class: "product__beet" },
-        // { name: "carrot", class: "product__carrot" },
-        // { name: "apple", class: "product__apple" },
+        { name: "vegetable", class: "product__vegetable" },
+        { name: "mushrooms", class: "product__mushrooms" },
+        { name: "beet", class: "product__beet" },
+        { name: "carrot", class: "product__carrot" },
+        { name: "apple", class: "product__apple" },
         { name: "dumplings", class: "product__dumplings" },
         { name: "berries", class: "product__berries" },
       ],
+      vegetable: this.$refs.vegetable,
     };
   },
   methods: {
-    chooseProduct(event) {
-      this.$emit(
-        "chooseProduct",
-        event.target.dataset.product,
-        event.target.offsetTop
-      );
+    chooseProduct(productName) {
+      this.$emit("chooseProduct", productName);
+    },
+    focusProduct(productName) {
+      if (document.documentElement.clientWidth > 1024) {
+        switch (productName) {
+          case "mushrooms":
+            this.changeImageProduct("vegetable__mashrooms-hover.png");
+            break;
+          case "beet":
+            this.changeImageProduct("vegetable__beet-hover.png");
+            break;
+          case "carrot":
+            this.changeImageProduct("vegetable__carrot-hover.png");
+            break;
+          case "apple":
+            this.changeImageProduct("vegetable__apple-hover.png");
+            break;
+          default:
+            this.defoultImageVegetable();
+        }
+      }
+    },
+    changeImageProduct(imgName) {
+      this.$refs.vegetable.style.background = `url('https://liebherr.korrespondent.net/products/${imgName}') center no-repeat`;
+      this.$refs.vegetable.style.backgroundSize = "contain";
+    },
+    defoultImageVegetable() {
+      this.$refs.vegetable.style.background =
+        "url('https://liebherr.korrespondent.net/products/vegetable.png') center no-repeat";
+      this.$refs.vegetable.style.backgroundSize = "contain";
     },
   },
 };
@@ -228,45 +257,48 @@ export default {
       );
     }
   }
-  &__mushrooms {
+  &__vegetable {
     @include product(
-      "../assets/images/product/mushrooms.png",
-      260px,
-      40px,
-      40px,
-      40px
+      "../assets/images/product/vegetable.png",
+      553px,
+      36px,
+      280px,
+      125px
     );
-    @include hover("../assets/images/product/mushrooms__hover.png");
+    cursor: inherit;
+    @include mobile {
+      @include product(
+        "../assets/images/product/vegetable.png",
+        357px,
+        22px,
+        165px,
+        70px
+      );
+    }
+  }
+  &__mushrooms {
+    @include product("", 585px, 50px, 85px, 75px);
+    @include mobile {
+      @include product("", 375px, 30px, 50px, 45px);
+    }
   }
   &__beet {
-    @include product(
-      "../assets/images/product/beet.png",
-      255px,
-      70px,
-      35px,
-      35px
-    );
-    @include hover("../assets/images/product/beet__hover.png");
+    @include product("", 570px, 135px, 75px, 50px);
+    @include mobile {
+      @include product("", 365px, 80px, 50px, 30px);
+    }
   }
   &__carrot {
-    @include product(
-      "../assets/images/product/carrot.png",
-      273px,
-      85px,
-      35px,
-      23px
-    );
-    @include hover("../assets/images/product/carrot__hover.png");
+    @include product("", 620px, 135px, 80px, 45px);
+    @include mobile {
+      @include product("", 395px, 80px, 50px, 25px);
+    }
   }
   &__apple {
-    @include product(
-      "../assets/images/product/apple.png",
-      260px,
-      113px,
-      35px,
-      35px
-    );
-    @include hover("../assets/images/product/apple__hover.png");
+    @include product("", 580px, 215px, 85px, 85px);
+    @include mobile {
+      @include product("", 370px, 130px, 50px, 50px);
+    }
   }
   &__dumplings {
     @include product(

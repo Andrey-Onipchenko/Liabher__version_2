@@ -1,32 +1,33 @@
 <template>
   <div class="operating-modes">
     <div class="slider">
-      <div class="slider__content" >
+      <div class="slider__content">
         <div class="slider__content-wrap" ref="content">
-                <h3
-          class="slider__title"
-          :class="activeSlide?.subtitle ? '' : 'slider__subtitle'"
-        >
-          {{ activeSlide.title }}
-        </h3>
-        <h4 class="slider__subtitle" v-if="activeSlide?.subtitle">
-          {{ activeSlide.subtitle }}
-        </h4>
-        <div class="slider--description">
-          <p
-            class="slider__text"
-            v-for="(description, index) in activeSlide.description"
-            :key="index"
+          <h3
+            class="slider__title"
+            :class="activeSlide?.subtitle ? '' : 'slider__subtitle'"
           >
-            {{ description }}
-          </p>
-        </div></div>
-        <div class="slider__bullets" ref='bullets'>
+            {{ activeSlide.title }}
+          </h3>
+          <h4 class="slider__subtitle" v-if="activeSlide?.subtitle">
+            {{ activeSlide.subtitle }}
+          </h4>
+          <div class="slider--description">
+            <p
+              class="slider__text"
+              v-for="(description, index) in activeSlide.description"
+              :key="index"
+            >
+              {{ description }}
+            </p>
+          </div>
+        </div>
+        <div class="slider__bullets" ref="bullets">
           <div
             class="slider__bullets-item"
-            v-for="(bullet,index) in slides"
+            v-for="(bullet, index) in slides"
             :key="bullet.name"
-             :class="index === 0 && 'slider__active'"
+            :class="index === 0 && 'slider__active'"
             @click="chengeSlide(bullet, $event)"
           >
             {{ bullet.name }}
@@ -34,7 +35,11 @@
         </div>
       </div>
       <div class="slider__images" ref="sliderImage">
-        <img class="slider__img" :src="activeSlide.img" :alt="activeSlide.title" />
+        <img
+          class="slider__img"
+          :src="activeSlide.img"
+          :alt="activeSlide.title"
+        />
       </div>
     </div>
   </div>
@@ -103,21 +108,23 @@ export default {
   },
   methods: {
     chengeSlide(bullet, event) {
-      if(!(bullet === this.activeSlide)){
-      this.$refs.content.style.opacity = "0";
-      this.$refs.sliderImage.style.opacity = "0";
-      setTimeout(() => {
-        this.activeSlide = bullet;
-        this.$refs.content.style.opacity = "1";
-        this.$refs.sliderImage.style.opacity = "1";
-        this.chengeBullet(event.target);
-      }, 500);
+      if (!(bullet === this.activeSlide)) {
+        this.$refs.content.style.opacity = "0";
+        this.$refs.sliderImage.style.opacity = "0";
+        setTimeout(() => {
+          this.activeSlide = bullet;
+          this.$refs.content.style.opacity = "1";
+          this.$refs.sliderImage.style.opacity = "1";
+          this.chengeBullet(event.target);
+        }, 500);
       }
     },
-    chengeBullet(bullet){
-    this.$refs.bullets.querySelector('.slider__active').classList.remove('slider__active');
-    bullet.classList.add('slider__active')
-    }
+    chengeBullet(bullet) {
+      this.$refs.bullets
+        .querySelector(".slider__active")
+        .classList.remove("slider__active");
+      bullet.classList.add("slider__active");
+    },
   },
 };
 </script>
@@ -127,20 +134,39 @@ export default {
   height: 668px;
   color: $black;
   display: flex;
-
   align-items: center;
+  @include tablet {
+    position: relative;
+    height: auto;
+    padding: 120px 0 30px;
+  }
+  @include mobile {
+    position: relative;
+    height: auto;
+    padding: 80px 0 20px;
+  }
 }
 .slider {
   height: 560px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include tablet {
+    flex-direction: column-reverse;
+    height: auto;
+  }
 
   &__content {
     margin-left: 5%;
     transition: all 500ms ease-in-out;
-    &-wrap{
+    @include mobile {
+      margin: 0 5%;
+    }
+    &-wrap {
       min-height: 370px;
+      @include tablet {
+        min-height: 300px;
+      }
     }
   }
   &__title,
@@ -153,15 +179,39 @@ export default {
       font-size: 40px;
       line-height: 44px;
     }
+    @include tablet {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    @include mobile {
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
   &__subtitle {
     margin-bottom: 20px;
+    @include tablet {
+      position: absolute;
+      top: 60px;
+    }
+    @include mobile {
+      position: absolute;
+      top: 40px;
+    }
   }
   &__text {
     color: #747474;
     margin-bottom: 20px;
     &:nth-last-child(1) {
       margin-bottom: 60px;
+      @include mobile {
+        margin-bottom: 30px;
+      }
+    }
+    @include mobile {
+      font-size: 16px;
+      line-height: 19px;
     }
   }
   &__images {
@@ -169,19 +219,31 @@ export default {
   }
   &__img {
     width: 40vw;
+    @include tablet {
+      width: 100vw;
+      margin-bottom: 15px;
+    }
   }
   &__bullets {
     max-width: 365px;
     display: flex;
     justify-content: space-between;
+
+    @include mobile {
+      max-width: 100%;
+      margin: 0 auto;
+    }
     &-item {
       width: 65px;
       border-top: 2px solid #d7d7d7;
       padding-top: 10px;
       cursor: pointer;
+      @include mobile {
+        width: 45px;
+      }
     }
   }
-    &__active{
+  &__active {
     color: $blue;
     border-top: 2px solid $blue;
   }

@@ -26,6 +26,8 @@
             />
           </svg>
         </button>
+        <button class="popup__next" @click="chengeProduct('next')"></button>
+        <button class="popup__back" @click="chengeProduct('back')"></button>
         <div class="popup__header">
           <img class="popup__header-img" :src="product.imgUrl" alt="" />
           <div class="popup__header-term">
@@ -53,14 +55,21 @@
         </div>
         <div class="popup__content">
           <h3 class="popup__title">{{ product.title }}</h3>
-          <div class="popup__description">
-            <p
-              class="popup__text"
+
+          <ul
+            :class="
+              product.name === 'cake'
+                ? 'popup__description_min'
+                : 'popup__description'
+            "
+          >
+            <li
+              :class="description.normal ? 'popup__sub-text' : 'popup__text'"
               v-for="(description, index) in product.description"
               :key="index"
               v-html="description.text"
-            ></p>
-          </div>
+            ></li>
+          </ul>
         </div>
         <button class="popup__more">Детальніше</button>
       </div>
@@ -87,6 +96,9 @@ export default {
   methods: {
     popupClose() {
       this.$emit("popupClose");
+    },
+    chengeProduct(direction) {
+      this.$emit("chengeProduct", direction);
     },
   },
 };
@@ -125,8 +137,15 @@ export default {
   justify-content: flex-end;
   color: $black;
   @include mobile {
-    width: 100vw;
-    height: 100vh;
+    width: 90vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  @include min-mobile {
+    width: 98vw;
+    height: 98vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -136,6 +155,22 @@ export default {
     top: 15px;
     right: 15px;
     background: transparent;
+  }
+  &__next {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 50px;
+    height: 50px;
+    background: url("../assets/images/popup/right.svg") center no-repeat;
+  }
+  &__back {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 50px;
+    height: 50px;
+    background: url("../assets/images/popup/left.svg") center no-repeat;
   }
   &__header {
     max-width: 150px;
@@ -167,6 +202,39 @@ export default {
   &__description {
     height: 240px;
     overflow: auto;
+
+    &_min {
+      height: 240px;
+      overflow: auto;
+      @include mobile {
+        height: 190px;
+      }
+    }
+  }
+  &__sub-text {
+    font-size: 14px;
+    line-height: 19px;
+    &:nth-child(2) {
+      margin-bottom: 10px;
+    }
+  }
+  &__text {
+    padding: 0 5px 0 15px;
+    position: relative;
+    font-size: 14px;
+    line-height: 19px;
+    color: #272727;
+    margin-bottom: 5px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 0px;
+      width: 7px;
+      height: 7px;
+      background: $blue;
+      border-radius: 50%;
+    }
   }
   &__more {
     background: $lightBlue;
@@ -174,6 +242,7 @@ export default {
     width: 100%;
     height: 44px;
     color: $white;
+    padding: 12px 0;
   }
 }
 </style>

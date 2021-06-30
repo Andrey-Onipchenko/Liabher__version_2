@@ -44,6 +44,13 @@ export default {};
   background: #3674bd;
   padding: 50px 0;
   display: flex;
+
+  @include tablet {
+    padding: 110px 0 0;
+    height: auto;
+    flex-direction: column;
+    position: relative;
+  }
   &__img {
     margin-right: 180px;
     width: 40vw;
@@ -51,6 +58,10 @@ export default {};
     object-fit: cover;
     @include notebook {
       margin-right: 100px;
+    }
+    @include tablet {
+      width: 100vw;
+      margin: 0 0 25px;
     }
   }
   &__content {
@@ -67,11 +78,24 @@ export default {};
     text-transform: uppercase;
     max-width: 400px;
     margin-bottom: 40px;
+    @include tablet {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 32px;
+      line-height: 36px;
+    }
   }
   &__text {
     margin-bottom: 20px;
     &:nth-last-child(1) {
       margin-bottom: 0;
+    }
+    @include tablet {
+      padding: 0 15px 25px;
+      margin-bottom: 0;
+      font-size: 16px;
+      line-height: 19px;
     }
   }
 }

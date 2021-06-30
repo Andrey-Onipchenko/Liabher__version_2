@@ -32,13 +32,13 @@
           Просто оберіть правильний холодильник — такий, де продукти
           зберігаються ДОВШЕ, ніж в звичайному!
         </p>
-        <button class="header__bnt">
+        <a href="#main" class="header__bnt">
           <img
             class="header__bnt-arrow"
             src="../assets/images/header/header__arrow.svg"
             alt="Обрати холодильник"
           />
-        </button>
+        </a>
       </div>
     </div>
   </header>
