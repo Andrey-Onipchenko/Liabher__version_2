@@ -54,14 +54,7 @@
         <v-products @chooseProduct="openPopup" />
       </div>
     </div>
-    <v-popup
-      @popupClose="popupClose"
-      v-if="popup"
-      :product="productData"
-      :position="popupPosition"
-      :scroll="scrollTop"
-      :main="main"
-    />
+    <v-popup @popupClose="popupClose" v-if="popup" :product="productData" />
   </div>
 </template>
 
@@ -75,25 +68,13 @@ export default {
         "https://liebherr.korrespondent.net/img/icebox-black__open.png",
       products: null,
       popup: false,
-      popupPosition: 0,
       index: null,
       productData: {},
-      scrollTop: 0,
-      main: {
-        top: null,
-        height: null,
-      },
     };
   },
   components: {
     VProducts,
     VPopup,
-  },
-  created() {
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     changeIcebox(event) {
@@ -129,25 +110,21 @@ export default {
         .classList.remove("main__icebox-active");
       icebox.classList.add("main__icebox-active");
     },
-    openPopup(productName, positionY) {
+    openPopup(productName) {
       this.productData = this.products.filter(
         (el) => el.name === productName
       )[0];
-      this.popupPosition = positionY;
       this.index = this.productData.position;
       this.popup = true;
+      document.documentElement.style.overflow = "hidden";
     },
     popupClose() {
       this.popup = false;
-    },
-    handleScroll() {
-      this.scrollTop = window.scrollY;
+      document.documentElement.style.overflow = "auto";
     },
   },
   mounted() {
     this.products = this.$store.getters.getProduct;
-    this.main.top = this.$refs.main.offsetTop || 0;
-    this.main.height = this.$refs.main.clientHeight || 0;
   },
 };
 </script>

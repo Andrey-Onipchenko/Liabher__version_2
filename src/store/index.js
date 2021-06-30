@@ -12,7 +12,7 @@ export default createStore({
         imgUrl: "https://liebherr.korrespondent.net/products/cake.png",
         description: [
           {
-            text: "В звичайному холодильнику: ризик підмороження або повільного охолодження",
+            text: "<span class='header__text_blue'>В звичайному холодильнику: ризик підмороження або повільного охолодження</span>",
           },
           {
             text: "В холодильнику Liebherr з технологією PowerCooling: рівномірне охолодження",
