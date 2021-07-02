@@ -277,27 +277,27 @@ export default {
     }
   }
   &__mushrooms {
-    @include product("", 585px, 50px, 85px, 75px);
+    @include product(false, 585px, 50px, 85px, 75px);
     @include mobile {
-      @include product("", 375px, 30px, 50px, 45px);
+      @include product(false, 375px, 30px, 50px, 45px);
     }
   }
   &__beet {
-    @include product("", 570px, 135px, 75px, 50px);
+    @include product(false, 570px, 135px, 75px, 50px);
     @include mobile {
-      @include product("", 365px, 80px, 50px, 30px);
+      @include product(false, 365px, 80px, 50px, 30px);
     }
   }
   &__carrot {
-    @include product("", 620px, 135px, 80px, 45px);
+    @include product(false, 620px, 135px, 80px, 45px);
     @include mobile {
-      @include product("", 395px, 80px, 50px, 25px);
+      @include product(false, 395px, 80px, 50px, 25px);
     }
   }
   &__apple {
-    @include product("", 580px, 215px, 85px, 85px);
+    @include product(false, 580px, 215px, 85px, 85px);
     @include mobile {
-      @include product("", 370px, 130px, 50px, 50px);
+      @include product(false, 370px, 130px, 50px, 50px);
     }
   }
   &__dumplings {

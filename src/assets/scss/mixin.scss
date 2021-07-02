@@ -20,12 +20,17 @@
 }
 @mixin product($url: "", $top: 0, $left: 0, $width: 80px, $height: 80px) {
   position: absolute;
-  background: url($url) center no-repeat;
+  @if($url){
+    background: url($url) center no-repeat;
+  }@else{
+    background: none;
+  }
   background-size: contain;
   width: $width;
   height: $height;
   top: $top;
   left: $left;
+   
 }
 @mixin notebook {
   @media (max-width: (1366px)) {

@@ -1,6 +1,9 @@
 <template>
   <div class="main" id="main" ref="main">
-    <a class="main__link" href=""
+    <h3 class="main__title">
+      Клікай на продукти та дізнавайся про їхнє оптимальне зберігання
+    </h3>
+    <a class="main__link" href="" @click="analiticsToStore" target="_blank"
       >В магазин
       <svg
         width="34"
@@ -86,6 +89,19 @@ export default {
       let selected = event.target.getAttribute("data-icebox");
       this.chengeActiveIcebox(selected);
       this.chengeActiveListIcebox(event.target.parentElement);
+      switch (selected) {
+        case "black":
+          this.analiticsBlackRef();
+          break;
+        case "white":
+          this.analiticsWhitekRef();
+          break;
+        case "grey":
+          this.analiticsGreykRef();
+          break;
+        default:
+          break;
+      }
     },
     chengeActiveIcebox(selected) {
       switch (selected) {
@@ -142,6 +158,30 @@ export default {
       }
       this.productData = this.products[this.index];
     },
+    analiticsToStore() {
+      this.$gtag.event("click", {
+        event_category: "huawei",
+        event_label: "store",
+      });
+    },
+    analiticsBlackRef() {
+      this.$gtag.event("click", {
+        event_category: "huawei",
+        event_label: "black",
+      });
+    },
+    analiticsWhitekRef() {
+      this.$gtag.event("click", {
+        event_category: "huawei",
+        event_label: "white",
+      });
+    },
+    analiticsGreykRef() {
+      this.$gtag.event("click", {
+        event_category: "huawei",
+        event_label: "gray",
+      });
+    },
   },
   mounted() {
     this.products = this.$store.getters.getProduct;
@@ -158,19 +198,44 @@ export default {
   @include flex(center, center, nowrap);
   position: relative;
   @include mobile {
-    height: 1000px;
+    height: 1100px;
+  }
+  &__title {
+    position: absolute;
+    top: 20px;
+    font-size: 26px;
+    line-height: 30px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    @include mobile {
+      top: 40px;
+      padding: 0 15px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+    @include min-mobile {
+      top: 40px;
+      padding: 0 10px;
+      font-size: 18px;
+      line-height: 22px;
+    }
   }
   &__link {
     position: absolute;
-    top: 10px;
-    right: 10%;
+    bottom: 50px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 140px;
+    width: 200px;
     height: 44px;
     background: $blue;
     border-radius: 5px;
+    z-index: 1;
     @include mobile {
       top: auto;
       bottom: 30px;
@@ -186,6 +251,7 @@ export default {
     @include flex(center, flex-start, nowrap);
     @include mobile {
       flex-direction: column;
+      padding: 150px 0 70px;
     }
   }
   &__current-icebox {

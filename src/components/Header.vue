@@ -32,7 +32,7 @@
           Просто оберіть правильний холодильник — такий, де продукти
           зберігаються ДОВШЕ, ніж в звичайному!
         </p>
-        <a href="#main" class="header__bnt">
+        <a class="header__bnt" href="#main" @click="analiticsChooseКef()">
           <img
             class="header__bnt-arrow"
             src="../assets/images/header/header__arrow.svg"
@@ -47,6 +47,14 @@
 <script>
 export default {
   name: "Header",
+  methods: {
+    analiticsChooseКef() {
+      this.$gtag.event("click", {
+        event_category: "huawei",
+        event_label: "choose",
+      });
+    },
+  },
 };
 </script>
 
