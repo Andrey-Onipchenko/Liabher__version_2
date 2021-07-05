@@ -202,6 +202,7 @@ export default {
   }
   &__title {
     position: absolute;
+    color: $blue;
     top: 20px;
     font-size: 26px;
     line-height: 30px;
