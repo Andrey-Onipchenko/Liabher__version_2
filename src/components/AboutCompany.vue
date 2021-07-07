@@ -6,7 +6,7 @@
       alt=""
     />
     <div class="about-company__content">
-      <h3 class="about-company__title">Про компанію LIEBHER</h3>
+      <h3 class="about-company__title">Про компанію LIEBHERR</h3>
       <p class="about-company__text">
         Liebher – бренд, що почав свою історію ще в 1949 році. Тоді талановитий
         інженер-винахідник Ганс Лібхер створив інноваційну конструкцію

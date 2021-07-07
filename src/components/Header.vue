@@ -6,7 +6,7 @@
           <a href="#"
             ><img
               class="header__logo-liabherr"
-              src="../assets/images/header/logo__liabherr.png"
+              src="../assets/images/header/logo__liabherr.svg"
               alt="Логотип Liabherr"
           /></a>
           <a href="#"
@@ -102,6 +102,7 @@ export default {
     &-liabherr {
       display: inline-block;
       margin-right: 50px;
+      max-width: 155px;
       @include min-mobile {
         max-width: 70%;
       }

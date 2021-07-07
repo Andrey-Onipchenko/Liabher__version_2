@@ -68,42 +68,9 @@ export default createStore({
         ],
       },
       {
-        name: "blueCheese",
-        title: "Cир з пліснявою",
-        position: 3,
-        maxDays: 110,
-        minDays: 10,
-        imgUrl: "https://liebherr.korrespondent.net/products/blueCheese.png",
-        description: [
-          {
-            text: "<span class='blue'>В звичайному холодильнику: 10 днів</span>",
-            normal: true,
-          },
-          {
-            text: "<span class='blue'>В холодильнику Liebherr з зоною свіжості BioFresh: 110 днів</span>",
-            normal: true,
-          },
-          {
-            text: "+100 днів",
-          },
-          {
-            text: "Тверді та напівтверді розфасовані сири зберігаються 10-15 днів. Подовжити термін зберігання можна, загорнувши сир в харчову плівку або пергаментний папір. ",
-          },
-          {
-            text: "Сир - продукт, що вбирає запахи,<span class='blue'> тому після відкриття упаковки його краще зберігати в герметичному контейнері або в пергаментному папері</span> – він пропускає достатню кількість світла і повітря. Розмір пергаменту має бути в 2 рази більший, ніж шматок сиру. ",
-          },
-          {
-            text: "Доречі, різні види сирів мають різний термін зберігання в звичайному холодильнику. Так, плавлений - до 3 місяців, м'який вершковий - до 30 днів, так званий «ковбасний» - до 2 місяців, розсольні сири - 30-75 днів, м'який з цвіллю – до 7 днів. ",
-          },
-          {
-            text: "Оптимальні умови для тривалого збереження сирів - холодильник Liebherr,<span class='blue'> зона BioFresh, контейнер Meat & DairySafe.</span> ",
-          },
-        ],
-      },
-      {
         name: "сheese",
         title: "Твердий сир",
-        position: 4,
+        position: 3,
         maxDays: 110,
         minDays: 10,
         imgUrl: "https://liebherr.korrespondent.net/products/сheese.png",
@@ -136,7 +103,7 @@ export default createStore({
       {
         name: "caviar",
         title: "Червона ікра",
-        position: 5,
+        position: 4,
         maxDays: 6,
         minDays: 2,
         imgUrl: "https://liebherr.korrespondent.net/products/caviar.png",
@@ -166,7 +133,7 @@ export default createStore({
       {
         name: "milk",
         title: "Молоко",
-        position: 6,
+        position: 5,
         maxDays: 12,
         minDays: 3,
         imgUrl: "https://liebherr.korrespondent.net/products/milk.png",
@@ -196,7 +163,7 @@ export default createStore({
       {
         name: "eggs",
         title: "Курячі яйця",
-        position: 7,
+        position: 6,
         maxDays: 45,
         minDays: 15,
         imgUrl: "https://liebherr.korrespondent.net/products/eggs.png",
@@ -229,7 +196,7 @@ export default createStore({
       {
         name: "salad",
         title: "Готові салати, закуски, напої",
-        position: 8,
+        position: 7,
         maxDays: false,
         minDays: false,
         imgUrl: "https://liebherr.korrespondent.net/products/salad.png",
@@ -259,7 +226,7 @@ export default createStore({
       {
         name: "pan",
         title: "Борщ",
-        position: 9,
+        position: 8,
         maxDays: false,
         minDays: false,
         imgUrl: "https://liebherr.korrespondent.net/products/pan.png",
@@ -292,7 +259,7 @@ export default createStore({
       {
         name: "meat",
         title: "М'ясо",
-        position: 10,
+        position: 9,
         maxDays: 6,
         minDays: 3,
         imgUrl: "https://liebherr.korrespondent.net/products/meat.png",
@@ -322,7 +289,7 @@ export default createStore({
       {
         name: "mushrooms",
         title: "Гриби",
-        position: 11,
+        position: 10,
         maxDays: 7,
         minDays: 3,
         imgUrl: "https://liebherr.korrespondent.net/products/mushrooms.png",
@@ -352,7 +319,7 @@ export default createStore({
       {
         name: "beet",
         title: "Буряк",
-        position: 12,
+        position: 11,
         maxDays: 18,
         minDays: 6,
         imgUrl: "https://liebherr.korrespondent.net/products/beet.png",
@@ -385,7 +352,7 @@ export default createStore({
       {
         name: "carrot",
         title: "Морква",
-        position: 13,
+        position: 12,
         maxDays: 80,
         minDays: 50,
         imgUrl: "https://liebherr.korrespondent.net/products/carrot.png",
@@ -419,7 +386,7 @@ export default createStore({
       {
         name: "apple",
         title: "Яблука",
-        position: 14,
+        position: 13,
         maxDays: 80,
         minDays: 40,
         imgUrl: "https://liebherr.korrespondent.net/products/apple.png",
@@ -449,7 +416,7 @@ export default createStore({
       {
         name: "dumplings",
         title: "Пельмені, напівфабрикати, морозиво",
-        position: 15,
+        position: 14,
         maxDays: false,
         minDays: false,
         imgUrl: "https://liebherr.korrespondent.net/products/dumplings.png",
@@ -474,7 +441,7 @@ export default createStore({
       {
         name: "berries",
         title: "Ягоди, гриби, фрукти, овочі, зелень (заморожування)",
-        position: 16,
+        position: 15,
         maxDays: null,
         minDays: null,
         imgUrl: "https://liebherr.korrespondent.net/products/berries.png",

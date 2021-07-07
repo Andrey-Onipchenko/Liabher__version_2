@@ -19,7 +19,6 @@ export default {
       products: [
         { name: "cake", class: "product__cake" },
         { name: "lemon", class: "product__lemon" },
-        { name: "blueCheese", class: "product__blueCheese" },
         { name: "сheese", class: "product__сheese" },
         { name: "caviar", class: "product__caviar" },
         { name: "milk", class: "product__milk" },
@@ -105,30 +104,11 @@ export default {
       );
     }
   }
-  &__blueCheese {
-    @include product(
-      "../assets/images/product/blueCheese.png",
-      193px,
-      50px,
-      70px,
-      70px
-    );
-    @include hover("../assets/images/product/blueCheese__hover.png");
-    @include mobile {
-      @include product(
-        "../assets/images/product/blueCheese.png",
-        140px,
-        30px,
-        45px,
-        40px
-      );
-    }
-  }
   &__сheese {
     @include product(
       "../assets/images/product/cheese.png",
       189px,
-      115px,
+      75px,
       70px,
       70px
     );
@@ -137,7 +117,7 @@ export default {
       @include product(
         "../assets/images/product/cheese.png",
         140px,
-        70px,
+        35px,
         40px,
         35px
       );
@@ -147,7 +127,7 @@ export default {
     @include product(
       "../assets/images/product/caviar.png",
       188px,
-      180px,
+      150px,
       55px,
       70px
     );
@@ -156,7 +136,7 @@ export default {
       @include product(
         "../assets/images/product/caviar.png",
         137px,
-        100px,
+        80px,
         40px,
         40px
       );
@@ -166,7 +146,7 @@ export default {
     @include product(
       "../assets/images/product/milk.png",
       158px,
-      230px,
+      210px,
       50px,
       100px
     );
@@ -175,7 +155,7 @@ export default {
       @include product(
         "../assets/images/product/milk.png",
         117px,
-        135px,
+        125px,
         30px,
         60px
       );

@@ -146,17 +146,20 @@ export default {
     },
     chengeProductPopup(direction) {
       if (direction === "next") {
-        this.index += 1;
-        if (this.index >= this.products.length) {
-          this.index = 0;
+        if (this.index >= this.products.length - 1) {
+          this.index = 1;
+        } else {
+          this.index += 1;
         }
-      } else if (direction === "back") {
-        if (this.index <= 0) {
+      } else {
+        if (this.index <= 1) {
           this.index = this.products.length;
+        }else{
+          this.index -= 1;
         }
-        this.index -= 1;
       }
-      this.productData = this.products[this.index];
+      console.log(this.index);
+      this.productData = this.products[this.index - 1];
     },
     analiticsToStore() {
       this.$gtag.event("click", {

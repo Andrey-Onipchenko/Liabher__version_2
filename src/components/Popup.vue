@@ -212,7 +212,7 @@ export default {
     }
   }
   &__sub-text {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 19px;
     &:nth-child(2) {
       margin-bottom: 10px;
@@ -221,7 +221,7 @@ export default {
   &__text {
     padding: 0 5px 0 15px;
     position: relative;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 19px;
     color: #272727;
     margin-bottom: 5px;
