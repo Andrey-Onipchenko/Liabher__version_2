@@ -33,8 +33,8 @@
           <div class="popup__header-term">
             <div class="popup__header-days" v-if="days">
               <span class="popup__header-mindays"
-                >{{ product.minDays }} днів</span
-              >
+                >{{ product.minDays }} {{ daysMin }}
+              </span>
               <svg
                 width="33"
                 height="12"
@@ -48,7 +48,7 @@
                 />
               </svg>
               <span class="popup__header-maxdays"
-                >{{ product.maxDays }} днів</span
+                >{{ product.maxDays }} {{ daysMax }}</span
               >
             </div>
           </div>
@@ -91,6 +91,12 @@ export default {
   computed: {
     days() {
       return this.product.minDays && this.product.maxDays;
+    },
+    daysMax() {
+      return typeof this.product.maxDays === "number" ? "днів" : "тижні";
+    },
+    daysMin() {
+      return typeof this.product.minDays === "number" ? "днів" : "тижні";
     },
   },
   methods: {
@@ -173,7 +179,7 @@ export default {
     background: url("../assets/images/popup/left.svg") center no-repeat;
   }
   &__header {
-    max-width: 150px;
+    max-width: 200px;
     margin: 0 auto 50px;
     &-img {
       display: block;
@@ -214,9 +220,8 @@ export default {
   &__sub-text {
     font-size: 16px;
     line-height: 19px;
-    &:nth-child(2) {
-      margin-bottom: 10px;
-    }
+
+    margin-bottom: 5px;
   }
   &__text {
     padding: 0 5px 0 15px;

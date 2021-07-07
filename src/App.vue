@@ -1,8 +1,8 @@
 <template>
   <v-header />
   <v-main />
-  <v-about-company />
   <v-operating-modes />
+  <v-about-company />
   <v-footer />
 </template>
 <script>
