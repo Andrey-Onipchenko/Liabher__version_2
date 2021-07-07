@@ -38,8 +38,8 @@ export default createStore({
         name: "lemon",
         title: "Лимон",
         position: 2,
-        maxDays: '4',
-        minDays: '2-3',
+        maxDays: "4",
+        minDays: "2-3",
         imgUrl: "https://liebherr.korrespondent.net/products/lemon.png",
         description: [
           {
@@ -51,7 +51,7 @@ export default createStore({
             normal: true,
           },
           {
-            text: "<span class='blue'>+2 тижні.</span>",
+            text: "<span class='blue'>+2 тижні</span>",
             normal: true,
           },
           {
@@ -218,11 +218,11 @@ export default createStore({
         imgUrl: "https://liebherr.korrespondent.net/products/salad.png",
         description: [
           {
-            text: "В звичайному холодильнику є ризик занадто повільного охолодження",
+            text: "В звичайному холодильнику є ризик занадто повільного охолодження.",
             normal: true,
           },
           {
-            text: "В холодильнику Liebherr з режимом SuperCool: ідеальне охолодження",
+            text: "В холодильнику Liebherr з режимом SuperCool - ідеальне охолодження.",
             normal: true,
           },
           {
@@ -249,11 +249,11 @@ export default createStore({
         imgUrl: "https://liebherr.korrespondent.net/products/pan.png",
         description: [
           {
-            text: "У звичайному холодильнику: прискорене псування в моделях з нестабільним температурним фоном",
+            text: "У звичайному холодильнику: прискорене псування в моделях з нестабільним температурним фоном.",
             normal: true,
           },
           {
-            text: "В холодильнику Liebherr з режимом SuperCool: швидке охолодження і комфортне зберігання",
+            text: "В холодильнику Liebherr з режимом SuperCool: швидке охолодження і комфортне зберігання.",
             normal: true,
           },
           {
@@ -465,11 +465,11 @@ export default createStore({
         description: [
           {
             text: "У звичайному холодильнику: під час тривалої відпустки, продукти треба викидати або не вимикати холодильник",
-           normal: true,
+            normal: true,
           },
           {
             text: "<span class='blue'>В холодильнику Liebherr з режимом DuoCooling: можна залишити працювати тільки морозильну камеру.</span>",
-           normal: true,
+            normal: true,
           },
           {
             text: "Використання в холодильнику двох незалежних один від одного холодильних контурів дає можливість вільно регулювати температуру в холодильній і морозильній камері.",
@@ -493,11 +493,11 @@ export default createStore({
         description: [
           {
             text: "У звичайному холодильнику: ризик злипання плодів між собою, нерівномірне замороження, непривабливий вигляд",
-           normal: true,
+            normal: true,
           },
           {
             text: "В холодильнику Liebherr з режимом SuperFrost: глибока і рівномірна заморозка",
-           normal: true,
+            normal: true,
           },
           {
             text: "<span class='blue'>Овочі та фрукти перед заморожуванням треба ретельно вимити і висушити. Якщо цього не зробити - все злипнеться одним каменем. </span> ",
