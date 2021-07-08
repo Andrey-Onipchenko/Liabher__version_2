@@ -220,8 +220,8 @@ export default {
   &__sub-text {
     font-size: 16px;
     line-height: 19px;
-
     margin-bottom: 5px;
+    padding-right: 5px;
   }
   &__text {
     padding: 0 5px 0 15px;

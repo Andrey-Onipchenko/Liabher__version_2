@@ -103,6 +103,7 @@ export default {
       display: inline-block;
       margin-right: 50px;
       max-width: 155px;
+      width: 100%;
       @include min-mobile {
         max-width: 70%;
       }

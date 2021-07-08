@@ -72,7 +72,7 @@ export default {
           img: "https://liebherr.korrespondent.net/slider/slide_2.jpg",
           subtitle: "режим із високою вологістю",
           description: [
-            "Цей режим оптимальний для тривалого збереження свіжості розпакованих фруктів, овочів і салатів. Достатньо лише максимально відкрити заслонку контейнера.",
+            "Цей режим оптимальний для тривалого збереження свіжості розпакованих фруктів, овочів і салатів. Достатньо лише максимально закрити заслонку контейнера.",
             "Температура близька до 0°С та висока вологість продовжать термін зберігання продуктів з високим вмістом вологи, захистить їх від зневоднення та максимально збереже поживні речовини в них.",
           ],
         },
@@ -83,7 +83,7 @@ export default {
           img: "https://liebherr.korrespondent.net/slider/slide_3.jpg",
           subtitle: "режим із пониженою вологістю",
           description: [
-            "Режим, що ідеально підійде для зберігання риби, м'яса і молочних продуктів. Адже саме у сухому кліматі вони зберігають свій смак, аромат і корисні властивості значно довше, ніж в звичайній холодильній камері. Для активації режиму DrySafe достатньо лише закрити заслонку контейнера. Тоді рівень вологості знизиться і утворяться оптимальні умови для тих продуктів, для яких надмірна волога є згубною.",
+            "Режим, що ідеально підійде для зберігання риби, м'яса і молочних продуктів. Адже саме у сухому кліматі вони зберігають свій смак, аромат і корисні властивості значно довше, ніж в звичайній холодильній камері. Для активації режиму DrySafe достатньо лише відкрити заслонку контейнера. Тоді рівень вологості знизиться і утворяться оптимальні умови для тих продуктів, для яких надмірна волога є згубною.",
             "Продукти в цьому режимі варто зберігати герметично упакованими, аби запобігти їхньому висиханню.",
             "Порада: 0°C – температура оптимальна для збереження продуктів, але не для споживання. Тому перед безпосереднім вживанням чи приготуванням, продукти необхідно дістати з холодильнику заздалегідь. Аромат і смакові якості, таким чином, відкриються у повній мірі.",
           ],
@@ -104,7 +104,7 @@ export default {
           title: "BioFresh Professional",
           img: "https://liebherr.korrespondent.net/slider/slide_5.jpg",
           description: [
-            "Відсік у холодильнику, де застосована технологія HydroBreeze – це подавання холодного туману кожні 90 хвилин. Холодний туман, що покриває розміщені у відсіку фрукти та овочі, забезпечує хрусткість і свіжість, покращуючи структуру продуктів.",
+            "Відсік у холодильнику, де застосована технологія HydroBreeze – це подавання холодного туману при кожному відкриванні дверцят. Холодний туман, що покриває розміщені у відсіку фрукти та овочі, забезпечує хрусткість і свіжість, покращуючи структуру продуктів.",
             "Завдяки HydroBreeze продукти виглядають привабливими та надовго залишаються такими за своєю суттю.",
           ],
         },
@@ -154,10 +154,10 @@ export default {
 
 <style lang="scss">
 .operating-modes {
-  height: 550px;
+  height: 600px;
   color: $black;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   @include tablet {
     position: relative;
@@ -175,7 +175,7 @@ export default {
     text-align: center;
     font-size: 36px;
     line-height: 44px;
-    padding: 50px 10%;
+    padding: 50px 10% 0;
     @include mobile {
       font-size: 18px;
       line-height: 24px;
@@ -186,8 +186,10 @@ export default {
 .slider {
   height: 560px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  width: 1920px;
+  margin: 0 auto;
   @include tablet {
     flex-direction: column-reverse;
     height: auto;
@@ -195,9 +197,14 @@ export default {
 
   &__content {
     margin-left: 5%;
+    max-width: 50%;
+    width: 100%;
     transition: all 500ms ease-in-out;
+    @include tablet {
+      max-width: 90%;
+    }
     @include mobile {
-      margin: 0 5%;
+      margin: 0;
     }
     &-wrap {
       min-height: 370px;
@@ -209,12 +216,12 @@ export default {
   &__title,
   &__subtitle {
     font-weight: bold;
-    font-size: 48px;
-    line-height: 52px;
+    font-size: 44px;
+    line-height: 48px;
     text-transform: uppercase;
     @include notebook {
-      font-size: 40px;
-      line-height: 44px;
+      font-size: 36px;
+      line-height: 40px;
     }
     @include tablet {
       position: absolute;
@@ -252,12 +259,22 @@ export default {
     }
   }
   &__images {
+    max-width: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
     transition: all 500ms ease-in-out;
+    @include tablet {
+      justify-content: center;
+      max-width: 90%;
+    }
   }
   &__img {
-    width: 40vw;
+    max-height: 560px;
+    max-width: 90%;
     @include tablet {
-      width: 100vw;
+      max-width: 100%;
+      width: 100%;
       margin-bottom: 15px;
     }
   }
@@ -265,7 +282,6 @@ export default {
     max-width: 365px;
     display: flex;
     justify-content: space-between;
-
     @include mobile {
       max-width: 100%;
       margin: 0 auto;

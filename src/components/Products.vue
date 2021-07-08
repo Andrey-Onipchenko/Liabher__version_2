@@ -25,6 +25,7 @@ export default {
         { name: "eggs", class: "product__eggs" },
         { name: "salad", class: "product__salad" },
         { name: "pan", class: "product__pan" },
+        { name: "biofrechSafe", class: "product__biofrech-safe" },
         { name: "meat", class: "product__meat" },
         { name: "vegetable", class: "product__vegetable" },
         { name: "mushrooms", class: "product__mushrooms" },
@@ -35,6 +36,7 @@ export default {
         { name: "berries", class: "product__berries" },
       ],
       vegetable: this.$refs.vegetable,
+      biofrechSafe: this.$refs.biofrechSafe,
     };
   },
   methods: {
@@ -56,19 +58,34 @@ export default {
           case "apple":
             this.changeImageProduct("vegetable__apple-hover.png");
             break;
+          case "сheese":
+            this.changeImageProduct("biofrech-safe-cheese.png", "сheese");
+            break;
+          case "meat":
+            this.changeImageProduct("biofrech-safe-meat.png", "meat");
+            break;
           default:
             this.defoultImageVegetable();
         }
       }
     },
-    changeImageProduct(imgName) {
-      this.$refs.vegetable.style.background = `url('https://liebherr.korrespondent.net/products/${imgName}') center no-repeat`;
-      this.$refs.vegetable.style.backgroundSize = "contain";
+    changeImageProduct(imgName, name) {
+      if (name === "сheese" || name === "meat") {
+        this.$refs.biofrechSafe.style.background = `url('https://liebherr.korrespondent.net/products/${imgName}') center no-repeat`;
+        this.$refs.biofrechSafe.style.backgroundSize = "contain";
+      } else {
+        this.$refs.vegetable.style.background = `url('https://liebherr.korrespondent.net/products/${imgName}') center no-repeat`;
+        this.$refs.vegetable.style.backgroundSize = "contain";
+      }
     },
     defoultImageVegetable() {
       this.$refs.vegetable.style.background =
         "url('https://liebherr.korrespondent.net/products/vegetable.png') center no-repeat";
       this.$refs.vegetable.style.backgroundSize = "contain";
+
+      this.$refs.biofrechSafe.style.background =
+        "url('https://liebherr.korrespondent.net/products/biofrech-safe.png') center no-repeat";
+      this.$refs.biofrechSafe.style.backgroundSize = "contain";
     },
   },
 };
@@ -80,7 +97,6 @@ export default {
   }
   &__cake {
     @include product("../assets/images/product/cake.png", 80px, 60px);
-    @include hover("../assets/images/product/cake__hover.png");
     @include mobile {
       @include product(
         "../assets/images/product/cake.png",
@@ -93,7 +109,6 @@ export default {
   }
   &__lemon {
     @include product("../assets/images/product/lemon.png", 85px, 200px);
-    @include hover("../assets/images/product/lemon__hover.png");
     @include mobile {
       @include product(
         "../assets/images/product/lemon.png",
@@ -105,38 +120,25 @@ export default {
     }
   }
   &__сheese {
-    @include product(
-      "../assets/images/product/cheese.png",
-      189px,
-      75px,
-      70px,
-      70px
-    );
-    @include hover("../assets/images/product/cheese__hover.png");
+    z-index: 1;
+    @include product(false, 490px, 90px, 70px, 60px);
     @include mobile {
-      @include product(
-        "../assets/images/product/cheese.png",
-        140px,
-        35px,
-        40px,
-        35px
-      );
+      @include product(false, 310px, 55px, 40px, 35px);
     }
   }
   &__caviar {
     @include product(
       "../assets/images/product/caviar.png",
       188px,
-      150px,
+      90px,
       55px,
       70px
     );
-    @include hover("../assets/images/product/caviar__hover.png");
     @include mobile {
       @include product(
         "../assets/images/product/caviar.png",
         137px,
-        80px,
+        50px,
         40px,
         40px
       );
@@ -146,16 +148,15 @@ export default {
     @include product(
       "../assets/images/product/milk.png",
       158px,
-      210px,
+      180px,
       50px,
       100px
     );
-    @include hover("../assets/images/product/milk__hover.png");
     @include mobile {
       @include product(
         "../assets/images/product/milk.png",
         117px,
-        125px,
+        110px,
         30px,
         60px
       );
@@ -169,7 +170,6 @@ export default {
       190px,
       150px
     );
-    @include hover("../assets/images/product/eggs__hover.png");
     @include mobile {
       @include product(
         "../assets/images/product/eggs.png",
@@ -188,7 +188,6 @@ export default {
       80px,
       80px
     );
-    @include hover("../assets/images/product/salad__hover.png");
     @include mobile {
       @include product(
         "../assets/images/product/salad.png",
@@ -207,7 +206,6 @@ export default {
       160px,
       100px
     );
-    @include hover("../assets/images/product/pan__hover.png");
     @include mobile {
       @include product(
         "../assets/images/product/pan.png",
@@ -218,23 +216,30 @@ export default {
       );
     }
   }
-  &__meat {
+  &__biofrech-safe {
     @include product(
-      "../assets/images/product/meat.png",
+      "../assets/images/product/biofrech-safe.png",
       427px,
       27px,
       300px,
       145px
     );
-    @include hover("../assets/images/product/meat__hover.png");
+    cursor: inherit;
     @include mobile {
       @include product(
-        "../assets/images/product/meat.png",
+        "../assets/images/product/biofrech-safe.png",
         271px,
         17px,
         177px,
         90px
       );
+    }
+  }
+  &__meat {
+    z-index: 1;
+    @include product(false, 490px, 180px, 90px, 60px);
+    @include mobile {
+      @include product(false, 310px, 110px, 50px, 35px);
     }
   }
   &__vegetable {
@@ -288,7 +293,6 @@ export default {
       300px,
       145px
     );
-    @include hover("../assets/images/product/dumplings__hover.png");
     @include mobile {
       @include product(
         "../assets/images/product/dumplings.png",
@@ -307,7 +311,7 @@ export default {
       300px,
       145px
     );
-    @include hover("../assets/images/product/berries__hover.png");
+
     @include mobile {
       @include product(
         "../assets/images/product/berries.png",
@@ -316,6 +320,20 @@ export default {
         180px,
         90px
       );
+    }
+  }
+  &__cake,
+  &__lemon,
+  &__caviar,
+  &__milk,
+  &__eggs,
+  &__salad,
+  &__pan,
+  &__dumplings,
+  &__berries {
+    &:hover {
+      filter: drop-shadow(2px 2px 0px #00a1fd)
+        drop-shadow(-2px -2px 0px #00a1fd);
     }
   }
 }
