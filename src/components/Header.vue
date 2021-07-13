@@ -9,7 +9,7 @@
               src="../assets/images/header/logo__liabherr.svg"
               alt="Логотип Liabherr"
           /></a>
-          <a href="#"
+          <a href="https://korrespondent.net/" target="_blank"
             ><img
               class="header__logo-korrespondent"
               src="../assets/images/header/logo__korrespondent.png"

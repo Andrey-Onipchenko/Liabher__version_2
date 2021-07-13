@@ -71,7 +71,12 @@
             ></li>
           </ul>
         </div>
-        <button class="popup__more">Детальніше</button>
+        <a
+          :href="product.name === 'dumplings' ? dumplingsLink : productLink"
+          class="popup__more"
+          target="_blank"
+          >Детальніше</a
+        >
       </div>
     </div>
   </div>
@@ -79,6 +84,14 @@
 
 <script>
 export default {
+  data() {
+    return {
+      productLink:
+        "https://blog.liebherr.com/holodilna-tehnika/ua/2017/07/11/5-tehnologii/?utm_source=korrespondent&utm_medium=referral&utm_campaign=liebherr.korrespondent",
+      dumplingsLink:
+        "https://blog.liebherr.com/holodilna-tehnika/ua/2017/07/11/duocooling/?utm_source=korrespondent&utm_medium=referral&utm_campaign=liebherr.korrespondent",
+    };
+  },
   props: {
     product: {
       type: Object,
@@ -96,7 +109,11 @@ export default {
       return typeof this.product.maxDays === "number" ? "днів" : "тижні";
     },
     daysMin() {
-      return typeof this.product.minDays === "number" ? "днів" : "тижні";
+      if (this.product.minDays <= 3) {
+        return typeof this.product.minDays === "number" ? "дні" : "тижні";
+      } else {
+        return typeof this.product.minDays === "number" ? "днів" : "тижні";
+      }
     },
   },
   methods: {
@@ -248,6 +265,9 @@ export default {
     height: 44px;
     color: $white;
     padding: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>

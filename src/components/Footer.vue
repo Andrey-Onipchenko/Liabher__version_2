@@ -1,7 +1,11 @@
 <template>
   <div class="footer">
     <div class="footer__item-center">© 2021 UMH. All Rights Reserved.</div>
-    <a class="footer__fb" href="#" @click="analiticsShare" target="_blank"
+    <a
+      class="footer__fb"
+      href="https://www.facebook.com/korrespondent.net"
+      @click="analiticsShare"
+      target="_blank"
       ><svg
         xmlns="http://www.w3.org/2000/svg"
         aria-label="Facebook"

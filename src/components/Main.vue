@@ -3,7 +3,11 @@
     <h3 class="main__title">
       Клікай на продукти та дізнавайся про їхнє оптимальне зберігання
     </h3>
-    <a class="main__link" href="" @click="analiticsToStore" target="_blank"
+    <a
+      class="main__link"
+      href="https://liebherr.com.ua/?utm_source=korrespondent&utm_medium=referral&utm_campaign=liebherr.korrespondent&utm_term=to-shop-button"
+      @click="analiticsToStore"
+      target="_blank"
       >В магазин
       <svg
         width="34"
@@ -154,7 +158,7 @@ export default {
       } else {
         if (this.index <= 1) {
           this.index = this.products.length;
-        }else{
+        } else {
           this.index -= 1;
         }
       }
